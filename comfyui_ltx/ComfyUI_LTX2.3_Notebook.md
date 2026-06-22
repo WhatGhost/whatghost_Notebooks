@@ -124,9 +124,16 @@ python3 main.py --listen 0.0.0.0 --port 8799
 
 在网页里:
 
-1. 左侧 **Workflows** 打开 `LTX-2.3_t2v`(或把 json 拖进网页)。
-2. 点击 **Run** 运行。
-3. 输出视频保存在 `ComfyUI/output/video/`。
+1. 点击左侧 **Workflows**
+2. 打开 `LTX-2.3_t2v`(或把 json 拖进网页)。
+3. 点击 **Run** 运行。
+
+<img width="938" height="438" alt="confyui_1" src="https://github.com/user-attachments/assets/0c930563-ee00-4c3e-87e6-faeea8836ebb" />
+
+4. 输出视频保存在 `ComfyUI/output/video/`,本示例会生成一个如下所示的视频
+<img width="807" height="437" alt="confyui_2" src="https://github.com/user-attachments/assets/fc41917c-377f-4436-b227-7b4ecf514588" />
+
+
 
 
 ---
