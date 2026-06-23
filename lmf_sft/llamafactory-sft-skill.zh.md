@@ -21,7 +21,8 @@
 ```bash
 git clone --depth 1 https://github.com/hiyouga/LlamaFactory.git
 cd LlamaFactory
-pip install -e ".[torch,metrics,modelscope]"
+pip install -e .
+pip install -r requirements/metrics.txt
 ```
 
 检查安装是否成功：
