@@ -239,13 +239,13 @@ amd-smi monitor 2>/dev/null || rocm-smi 2>/dev/null || nvidia-smi
 ROCm 环境：
 
 ```bash
-HIP_VISIBLE_DEVICES=0 llamafactory-cli train llamafactory_runs/qwen3-1.7b_lora_20260622_1530/sft.yaml
+HIP_VISIBLE_DEVICES=0 llamafactory-cli train llamafactory_runs/qwen3.5-2b-base_lora_20260623_0619/sft.yaml
 ```
 
  NVIDIA 环境：
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 llamafactory-cli train llamafactory_runs/qwen3-1.7b_lora_20260622_1530/sft.yaml
+CUDA_VISIBLE_DEVICES=0 llamafactory-cli train llamafactory_runs/qwen3.5-2b-base_lora_20260623_0619/sft.yaml
 ```
 
 
