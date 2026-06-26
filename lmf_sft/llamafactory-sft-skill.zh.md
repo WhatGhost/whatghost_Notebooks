@@ -8,11 +8,11 @@
 
 ## 1. 环境准备
 
-实验硬件与软件环境：
+本教程实验硬件与软件环境 ，本教程在AMD Radeon W7900上进行操作，同样的操作也适用于Nvidia GPU
 
 | 项目 | 配置 |
 |---|---|
-| GPU | 8 × AMD Radeon PRO W7900 |
+| GPU | AMD Radeon PRO W7900 |
 | ROCm | `7.2.1` |
 | Agent | Cursor |
 
@@ -224,7 +224,7 @@ examples/train_lora/qwen3_lora_sft.yaml
 
 ## 6. Stage 2.5：选择 GPU
 
-训练前，skill 会让智能体检测 GPU：
+训练前，skill 会让智能体检测 GPU (AMD 与 Nvidia GPU均可)：
 
 ```bash
 amd-smi monitor 2>/dev/null || rocm-smi 2>/dev/null || nvidia-smi

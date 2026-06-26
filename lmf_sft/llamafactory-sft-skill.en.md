@@ -7,11 +7,11 @@ This tutorial uses a lightweight example: starting from a Qwen3.5-2B model, usin
 
 ## 1. Environment Setup
 
-Experiment hardware and software environment:
+Hardware and software environment for this tutorial. This tutorial is run on an AMD Radeon W7900, and the same steps also apply to Nvidia GPUs.
 
 | Item | Configuration |
 |---|---|
-| GPU | 8 x AMD Radeon PRO W7900 |
+| GPU | AMD Radeon PRO W7900 |
 | ROCm | `7.2.1` |
 | Agent | Cursor |
 
@@ -223,7 +223,7 @@ After a download source is selected and the download starts, the agent monitors 
 
 ## 6. Stage 2.5: Select GPU
 
-Before training, the skill has the agent detect GPUs:
+Before training, the skill has the agent detect GPUs (AMD and Nvidia GPUs are both supported):
 
 ```bash
 amd-smi monitor 2>/dev/null || rocm-smi 2>/dev/null || nvidia-smi
