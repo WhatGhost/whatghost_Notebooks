@@ -32,7 +32,7 @@ llamafactory-cli version
 
 If LlamaFactory version information is printed, the environment is ready.
 
-![lmf01](images/lmf01.jpg)
+![lmf01](https://raw.githubusercontent.com/WhatGhost/whatghost_Notebooks/main/lmf_sft/images/lmf01.jpg)
 
 
 This tutorial assumes that you have already opened the LlamaFactory repository in an agent environment that supports skills. The `llamafactory-sft` skill is located at:
@@ -55,7 +55,7 @@ There are several ways to trigger the skill. You can describe the task directly 
 $llamafactory-sft  # Agents such as Codex that support $SkillName triggers
 ```
 
-![lmf02](images/lmf02.jpg)
+![lmf02](https://raw.githubusercontent.com/WhatGhost/whatghost_Notebooks/main/lmf_sft/images/lmf02.jpg)
 
 
 Now give the agent a natural-language task. A simple description is enough; the skill will continue by asking you to confirm details such as the model, dataset, execution mode, and fine-tuning type:
@@ -85,7 +85,7 @@ The agent confirms three key branches at once:
 | Fine-tuning type | LoRA |
 
 
-![lmf03](images/lmf03.jpg)
+![lmf03](https://raw.githubusercontent.com/WhatGhost/whatghost_Notebooks/main/lmf_sft/images/lmf03.jpg)
 
 
 > If the user initially says only "Please use LlamaFactory to help me run an SFT job", the skill will fill in these details here and during the later steps instead of choosing defaults silently. This means that even if the user has not specified the model, dataset, CLI/WebUI route, or LoRA/Full/QLoRA mode in advance, the agent will confirm the key branches clearly through interaction.
@@ -136,7 +136,7 @@ http://localhost:7860
 
 In the WebUI route, training, validation, and export are mainly completed by the user through the interface. The skill's role becomes "organizing the confirmed information into WebUI field suggestions", for example:
 
-![lmf25](images/lmf25.jpg)
+![lmf25](https://raw.githubusercontent.com/WhatGhost/whatghost_Notebooks/main/lmf_sft/images/lmf25.jpg)
 
 
 
@@ -151,17 +151,17 @@ For the dataset, this tutorial uses built-in LlamaFactory datasets:
 ```yaml
 dataset: identity,alpaca_zh_demo
 ```
-![lmf05](images/lmf05.jpg)
+![lmf05](https://raw.githubusercontent.com/WhatGhost/whatghost_Notebooks/main/lmf_sft/images/lmf05.jpg)
 
 
 The agent reads `data/dataset_info.json` and confirms that these datasets already exist. For datasets such as `identity` that contain template variables, the skill reminds the agent to ask whether variables such as `{{name}}` and `{{author}}` should be replaced, instead of directly using the default placeholders.
 
-![lmf06](images/lmf06.jpg)
+![lmf06](https://raw.githubusercontent.com/WhatGhost/whatghost_Notebooks/main/lmf_sft/images/lmf06.jpg)
 
 If you choose to replace the template variables in `identity`, the agent writes the replaced data into a new data file, such as `data/identity_custom.json`, and adds a corresponding entry to `dataset_info.json`, for example registering it as `identity_custom`. The original `identity` file is not overwritten, and LlamaFactory's built-in datasets are not polluted. The actual filename can be adjusted according to the experiment name.
 
 
-![lmf16](images/lmf16.jpg)
+![lmf16](https://raw.githubusercontent.com/WhatGhost/whatghost_Notebooks/main/lmf_sft/images/lmf16.jpg)
 
 
 
@@ -218,7 +218,7 @@ Next, the agent checks whether a complete local model already exists. If the mod
 After a download source is selected and the download starts, the agent monitors the download speed. If the download is slow, it asks the user whether to switch to another source.
 
 
-![lmf17](images/lmf17.jpg)
+![lmf17](https://raw.githubusercontent.com/WhatGhost/whatghost_Notebooks/main/lmf_sft/images/lmf17.jpg)
 
 
 ## 6. Stage 2.5: Select GPU
@@ -231,7 +231,7 @@ amd-smi monitor 2>/dev/null || rocm-smi 2>/dev/null || nvidia-smi
 
 If only one GPU is idle, the agent uses it directly. If multiple GPUs are idle, the agent asks whether to use a single GPU or multiple GPUs.
 
-![lmf20](images/lmf20.jpg)
+![lmf20](https://raw.githubusercontent.com/WhatGhost/whatghost_Notebooks/main/lmf_sft/images/lmf20.jpg)
 
 Training, validation, and export then reuse the same GPU selection. For example:
 
@@ -260,14 +260,14 @@ After entering the CLI route, the skill has the agent start from an official exa
 
 Before writing the yaml file, the agent first displays a table of key parameters:
 
-![lmf19](images/lmf19.jpg)
+![lmf19](https://raw.githubusercontent.com/WhatGhost/whatghost_Notebooks/main/lmf_sft/images/lmf19.jpg)
 
 
 If some parameters differ from the official example, the agent also displays a diff table:
 
 The user can customize the parameters they want to modify. For example, we change `template` to `qwen3_nothink`.
 
-![lmf18](images/lmf18.jpg)
+![lmf18](https://raw.githubusercontent.com/WhatGhost/whatghost_Notebooks/main/lmf_sft/images/lmf18.jpg)
 
 Only after the user confirms does the agent write the configuration into a specific directory. This directory is dedicated to the configuration and logs for this experiment, preventing them from being mixed together with model weights and checkpoints.
 
@@ -284,7 +284,7 @@ After startup, the agent continues polling the real training process and logs.
 
 Example status report:
 
-![lmf12](images/lmf12.jpg)
+![lmf12](https://raw.githubusercontent.com/WhatGhost/whatghost_Notebooks/main/lmf_sft/images/lmf12.jpg)
 
 
 After training finishes, the agent reports some basic training information. LlamaFactory generates a loss curve in the output directory, which can be used to inspect the training loss.
@@ -296,13 +296,13 @@ The full workflow continues into the result validation stage. For LoRA fine-tuni
 
 The agent references the official example configuration, generates the corresponding yaml file, displays it, and waits for user confirmation.
 
-![lmf22](images/lmf22.jpg)
+![lmf22](https://raw.githubusercontent.com/WhatGhost/whatghost_Notebooks/main/lmf_sft/images/lmf22.jpg)
 
 
 
 In an agent environment, interactive `llamafactory-cli chat` is usually inconvenient to drive automatically. Therefore, the skill generates a non-interactive script for result validation. The validation query is specified by the user.
 
-![lmf21](images/lmf21.jpg)
+![lmf21](https://raw.githubusercontent.com/WhatGhost/whatghost_Notebooks/main/lmf_sft/images/lmf21.jpg)
 
 
 
@@ -314,10 +314,10 @@ If the user wants to test interactively, they can run the `llamafactory-cli` com
 The export flow for LoRA / QLoRA merges the adapter into the base model, producing a model directory that can be loaded independently.
 
 The agent asks for the export directory configuration.
-![lmf23](images/lmf23.jpg)
+![lmf23](https://raw.githubusercontent.com/WhatGhost/whatghost_Notebooks/main/lmf_sft/images/lmf23.jpg)
 
 Based on the example and the output name specified by the user, the agent generates the export yaml file. An example is shown below:
-![lmf24](images/lmf24.jpg)
+![lmf24](https://raw.githubusercontent.com/WhatGhost/whatghost_Notebooks/main/lmf_sft/images/lmf24.jpg)
 
 
 The final model is saved to the corresponding directory.
